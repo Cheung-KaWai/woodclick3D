@@ -10,7 +10,7 @@ import { useAnimations } from "../hooks/useAnimations";
 
 export function Closets(props) {
   const { nodes, materials } = useGLTF("/closets.glb");
-  const [closets, setClosets] = useState({
+  const [closetsAnimation, setClosets] = useState({
     inbouw: false,
     vrijstaand: false,
     schuin: false,
@@ -48,7 +48,7 @@ export function Closets(props) {
     lShapeMainRotation,
     lShapeSecondRotation,
     lShapeThirdRotation,
-  } = useAnimations(closets);
+  } = useAnimations(closetsAnimation);
 
   return (
     <animated.group {...props} dispose={null}>
@@ -63,7 +63,7 @@ export function Closets(props) {
       <animated.mesh
         geometry={nodes.inbouw002.geometry}
         material={nodes.inbouw002.material}
-        position={[-1.28818, 0.705525, 0.085393]}
+        position={[1.3, 0.705525, 0.085393]}
         onPointerEnter={() => {
           setClosets((prev) => ({ ...prev, inbouw: true }));
         }}
@@ -84,7 +84,7 @@ export function Closets(props) {
         rotation={vrijstaandMainRotation}
         geometry={nodes.vrijstaand001.geometry}
         material={nodes.vrijstaand001.material}
-        position={[-0.908669, 0.707797, 0.090544]}
+        position={[0.9, 0.707797, 0.090544]}
         onPointerEnter={() => {
           setClosets((prev) => ({ ...prev, vrijstaand: true }));
         }}
@@ -102,7 +102,7 @@ export function Closets(props) {
         rotation={schuinMainRotation}
         geometry={nodes.schuin001.geometry}
         material={nodes.schuin001.material}
-        position={[-0.510323, 0.70254, 0.113959]}
+        position={[-0.05, 0.70254, 0.113959]}
         onPointerEnter={() => {
           setClosets((prev) => ({ ...prev, schuin: true }));
         }}
@@ -129,7 +129,7 @@ export function Closets(props) {
         }}
         geometry={nodes.zwevend.geometry}
         material={nodes.zwevend.material}
-        position={[-0.053963, 0.804421, 0.035782]}
+        position={[0.4, 0.804421, 0.035782]}
       >
         <animated.mesh rotation={zwevendSecondRotation} geometry={nodes.door_plate016.geometry} material={nodes.door_plate016.material} position={[-0.108962, 0.000681, 0.206054]} />
         <animated.mesh rotation={zwevendThirdRotation} geometry={nodes.door_plate017.geometry} material={nodes.door_plate017.material} position={[-0.003532, 0.000681, 0.100625]} />
@@ -140,7 +140,7 @@ export function Closets(props) {
         rotation={uShapeMainRotation}
         geometry={nodes.uShape.geometry}
         material={nodes.uShape.material}
-        position={[0.505047, 0.710548, -0.034334]}
+        position={[-0.7, 0.710548, -0.034334]}
         onPointerEnter={() => {
           setClosets((prev) => ({ ...prev, uShape: true }));
         }}
@@ -156,7 +156,7 @@ export function Closets(props) {
         rotation={lShapeMainRotation}
         geometry={nodes.lshape.geometry}
         material={nodes.lshape.material}
-        position={[1.23208, 0.705958, 0.01079]}
+        position={[-1.2, 0.705958, 0.01079]}
         onPointerEnter={() => {
           setClosets((prev) => ({ ...prev, lShape: true }));
         }}
