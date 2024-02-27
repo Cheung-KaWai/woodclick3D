@@ -1,5 +1,5 @@
 import { EffectComposer, N8AO } from "@react-three/postprocessing";
-import { useControls } from "leva";
+import { Leva, useControls } from "leva";
 import React from "react";
 
 // aoRadius?: number;
@@ -44,8 +44,11 @@ export const Effects = () => {
   });
 
   return (
-    <EffectComposer disableNormalPass>
-      <N8AO {...props} />
-    </EffectComposer>
+    <>
+      <Leva hidden />
+      <EffectComposer disableNormalPass>
+        <N8AO {...props} />
+      </EffectComposer>
+    </>
   );
 };
