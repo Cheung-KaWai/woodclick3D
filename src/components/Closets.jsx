@@ -22,7 +22,8 @@ export function Closets(props) {
     dressoir: false,
   });
   const [camPos, setCamPos] = useState([0, 1, 2]);
-  const [target, setTarget] = useState([0, 0, -4]);
+  const [camTarget, setTarget] = useState([0, 0, -3]);
+  const Controls = animated(OrbitControls);
 
   const {
     inbouwPosition1,
@@ -55,12 +56,11 @@ export function Closets(props) {
     lShapeThirdRotation,
   } = useAnimations(closetsAnimation);
 
-  useEffect(() => {
-    if (camRef.current) {
-      camRef.current.setLookAt(...camPos, ...target, true);
-    }
-    console.log(camRef.current.distance);
-  }, [camPos]);
+  const { position, target } = useSpring({
+    position: camPos,
+    target: camTarget,
+    config: config.molasses,
+  });
 
   return (
     <>
@@ -238,7 +238,7 @@ export function Closets(props) {
       </animated.group>
       <Texts closetsAnimation={closetsAnimation} />
       {/* <OrbitControls object-position={[0, 1.5, 2]} target={[0, 0, -1]} /> */}
-      <CameraControls ref={camRef} makeDefault={true} />
+      <Controls ref={camRef} makeDefault={true} target={target} object-position={position} enableZoom={false} enablePan={false} enableRotate={false} />
     </>
   );
 }
