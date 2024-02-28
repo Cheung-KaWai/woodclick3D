@@ -9,7 +9,6 @@ export const Scene = () => {
   return (
     <Container>
       <Canvas>
-        {/* <OrbitControls object-position={[0, 1.5, 2]} target={[0, 0, -1]} enableRotate={false} enablePan={false} enableZoom={false} /> */}
         <Closets />
         <Lights />
         <Effects />

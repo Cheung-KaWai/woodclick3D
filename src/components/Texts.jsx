@@ -48,11 +48,11 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 0.2rem;
-  height: 0.4rem;
+  padding: 0 2px;
+  height: 4px;
   background-color: #f0f0f0;
-  font-size: 0.15rem;
-  line-height: 0.15rem;
+  font-size: 1.5px;
+  line-height: 1.5px;
   transform: ${(props) => (props.$scale ? "scale(1)" : "scale(0)")};
   transition: all 0.3s ease-in-out;
   border-radius: 5px;
