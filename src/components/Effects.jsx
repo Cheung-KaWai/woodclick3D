@@ -41,6 +41,12 @@ export const Effects = () => {
       value: 8,
       step: 1,
     },
+    denoiseSamples: {
+      min: 1,
+      max: 16,
+      value: 16,
+      step: 1,
+    },
   });
 
   return (
