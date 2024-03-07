@@ -8,14 +8,15 @@ import { OrbitControls, useGLTF } from "@react-three/drei";
 import { animated, config, useSpring } from "@react-spring/three";
 import { useAnimations } from "./src/hooks/useAnimations";
 import { Texts } from "./src/components/Texts";
+import { path } from "./src/lib/globals";
 
 export function Closets2(props) {
-  const { nodes, materials } = useGLTF("/closets2-transformed.glb");
+  const { nodes, materials } = useGLTF(path + "/closets2-transformed.glb");
 
   const camRef = useRef();
   const [closetsAnimation, setClosets] = useState({
     inbouw: false,
-    vrijstaand: false,
+    vrijstaand: true,
     schuin: false,
     zwevend: false,
     zwevend2: false,
@@ -23,14 +24,15 @@ export function Closets2(props) {
     lShape: false,
     dressoir: false,
   });
-  const [currentCloset, setCurrentCloset] = useState(null);
+  const [currentCloset, setCurrentCloset] = useState("vrijstaand");
 
   const resetClosets = () => {
     setClosets({ inbouw: false, vrijstaand: false, schuin: false, zwevend: false, zwevend2: false, uShape: false, lShape: false, dressoir: false });
   };
 
-  const [camPos, setCamPos] = useState([0, 1.4, 2]);
-  const [camTarget, setTarget] = useState([0, 0, -1]);
+  const [camPos, setCamPos] = useState([-1.7, 0.9, 0.8]);
+  const [camTarget, setTarget] = useState([-1.7, 0.9, 0]);
+
   const Controls = animated(OrbitControls);
 
   const {
@@ -121,7 +123,7 @@ export function Closets2(props) {
         <animated.mesh
           name="schuin001"
           geometry={nodes.schuin001.geometry}
-          material={materials.quartz}
+          material={materials.kleur1}
           position={[0.579829, 0.70254, 0.070995]}
           rotation={schuinMainRotation}
           onPointerDown={() => {
@@ -142,13 +144,13 @@ export function Closets2(props) {
             document.body.style.cursor = "default";
           }}
         >
-          <animated.mesh rotation={schuinSecondRotation} name="door_plate012" geometry={nodes.door_plate012.geometry} material={materials.quartz} position={[-0.096205, 0.164888, 0.101678]} />
-          <animated.mesh rotation={schuinThirdRotation} name="door_plate013" geometry={nodes.door_plate013.geometry} material={materials.quartz} position={[0.004522, 0.164888, 0.000951]} />
-          <animated.mesh rotation={schuinSecondRotation} name="door_plate014" geometry={nodes.door_plate014.geometry} material={materials.quartz} position={[0.006254, 0.164888, -0.000781]} />
-          <animated.mesh rotation={schuinThirdRotation} name="door_plate015" geometry={nodes.door_plate015.geometry} material={materials.quartz} position={[0.106982, 0.164888, -0.101509]} />
-          <animated.mesh name="schuif1001" geometry={nodes.schuif1001.geometry} material={materials.quartz} position={schuinPosition1} />
-          <animated.mesh name="schuif2001" geometry={nodes.schuif2001.geometry} material={materials.quartz} position={schuinPosition2} />
-          <animated.mesh name="schuif3001" geometry={nodes.schuif3001.geometry} material={materials.quartz} position={schuinPosition3} />
+          <animated.mesh rotation={schuinSecondRotation} name="door_plate012" geometry={nodes.door_plate012.geometry} material={materials.kleur1} position={[-0.096205, 0.164888, 0.101678]} />
+          <animated.mesh rotation={schuinThirdRotation} name="door_plate013" geometry={nodes.door_plate013.geometry} material={materials.kleur1} position={[0.004522, 0.164888, 0.000951]} />
+          <animated.mesh rotation={schuinSecondRotation} name="door_plate014" geometry={nodes.door_plate014.geometry} material={materials.kleur1} position={[0.006254, 0.164888, -0.000781]} />
+          <animated.mesh rotation={schuinThirdRotation} name="door_plate015" geometry={nodes.door_plate015.geometry} material={materials.kleur1} position={[0.106982, 0.164888, -0.101509]} />
+          <animated.mesh name="schuif1001" geometry={nodes.schuif1001.geometry} material={materials.kleur1} position={schuinPosition1} />
+          <animated.mesh name="schuif2001" geometry={nodes.schuif2001.geometry} material={materials.kleur1} position={schuinPosition2} />
+          <animated.mesh name="schuif3001" geometry={nodes.schuif3001.geometry} material={materials.kleur1} position={schuinPosition3} />
         </animated.mesh>
         <animated.mesh
           rotation={lShapeMainRotation}
@@ -330,4 +332,4 @@ export function Closets2(props) {
   );
 }
 
-useGLTF.preload("/closets2-transformed.glb");
+useGLTF.preload(path + "/closets2-transformed.glb");
