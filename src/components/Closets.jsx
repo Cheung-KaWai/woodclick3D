@@ -8,9 +8,10 @@ import { CameraControls, OrbitControls, useGLTF } from "@react-three/drei";
 import { useSpring, animated, config } from "@react-spring/three";
 import { useAnimations } from "../hooks/useAnimations";
 import { Texts } from "./Texts";
+import { path } from "../lib/globals";
 
 export function Closets(props) {
-  const { nodes, materials } = useGLTF("/closets.glb");
+  const { nodes, materials } = useGLTF(path + "/closets.glb");
   const camRef = useRef();
   const [closetsAnimation, setClosets] = useState({
     inbouw: false,
@@ -21,8 +22,8 @@ export function Closets(props) {
     lShape: false,
     dressoir: false,
   });
-  const [camPos, setCamPos] = useState([0, 1, 2]);
-  const [camTarget, setTarget] = useState([0, 0, -3]);
+  const [camPos, setCamPos] = useState([0, 1.4, 2]);
+  const [camTarget, setTarget] = useState([0, 0, -1]);
   const Controls = animated(OrbitControls);
 
   const {
@@ -62,14 +63,18 @@ export function Closets(props) {
     config: config.molasses,
   });
 
+  useEffect(() => {
+    console.log(camRef.current);
+  }, []);
+
   return (
     <>
       <animated.group
         {...props}
         dispose={null}
         onPointerMissed={() => {
-          setCamPos([0, 1, 2]);
-          setTarget([0, 0, -4]);
+          setCamPos([0, 1.4, 2]);
+          setTarget([0, 0, -1]);
         }}
       >
         <animated.mesh
@@ -95,7 +100,7 @@ export function Closets(props) {
           material={nodes.inbouw002.material}
           position={[1.3, 0.705525, 0.085393]}
           onPointerDown={() => {
-            setCamPos([1.3, 0.9, 0.6]);
+            setCamPos([1.3, 0.9, 0.8]);
             setTarget([1.3, 0.9, 0]);
           }}
           onPointerEnter={() => {
@@ -122,7 +127,7 @@ export function Closets(props) {
           material={nodes.vrijstaand001.material}
           position={[0.9, 0.707797, 0.090544]}
           onPointerDown={() => {
-            setCamPos([0.95, 0.9, 0.6]);
+            setCamPos([0.95, 0.9, 0.8]);
             setTarget([0.95, 0.9, 0]);
           }}
           onPointerEnter={() => {
@@ -146,7 +151,7 @@ export function Closets(props) {
           material={nodes.schuin001.material}
           position={[-0.05, 0.70254, 0.113959]}
           onPointerDown={() => {
-            setCamPos([0, 0.9, 0.6]);
+            setCamPos([0, 0.9, 0.8]);
             setTarget([0, 0.9, 0]);
           }}
           onPointerEnter={() => {
@@ -170,7 +175,7 @@ export function Closets(props) {
         <animated.mesh
           rotation={zwevendMainRotation}
           onPointerDown={() => {
-            setCamPos([0.4, 0.9, 0.6]);
+            setCamPos([0.4, 0.9, 0.8]);
             setTarget([0.4, 0.9, 0]);
           }}
           onPointerEnter={() => {
@@ -196,7 +201,7 @@ export function Closets(props) {
           material={nodes.uShape.material}
           position={[-0.7, 0.710548, -0.034334]}
           onPointerDown={() => {
-            setCamPos([-0.7, 0.9, 0.6]);
+            setCamPos([-0.7, 0.9, 0.8]);
             setTarget([-0.7, 0.9, 0]);
           }}
           onPointerEnter={() => {
@@ -218,7 +223,7 @@ export function Closets(props) {
           material={nodes.lshape.material}
           position={[-1.2, 0.705958, 0.01079]}
           onPointerDown={() => {
-            setCamPos([-1.2, 0.9, 0.6]);
+            setCamPos([-1.2, 0.9, 0.8]);
             setTarget([-1.2, 0.9, 0]);
           }}
           onPointerEnter={() => {
@@ -243,4 +248,4 @@ export function Closets(props) {
   );
 }
 
-useGLTF.preload("/closets.glb");
+useGLTF.preload(path + "/closets.glb");

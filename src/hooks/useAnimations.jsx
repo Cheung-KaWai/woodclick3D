@@ -51,6 +51,20 @@ export const useAnimations = (closets) => {
     delay: closets.zwevend ? 0 : 200,
   });
 
+  const zwevendRotations2 = useSpring({
+    zwevendMainRotation2: [0, closets.zwevend2 ? -Math.PI / 4 : 0, 0],
+    zwevendSecondRotation2: [0, closets.zwevend2 ? -Math.PI / 2 : 0, 0],
+    zwevendThirdRotation2: [0, closets.zwevend2 ? Math.PI / 2 : 0, 0],
+    delay: closets.zwevend2 ? 0 : 200,
+  });
+
+  const dressoirtRotation = useSpring({
+    dressoirRotation: [0, closets.dressoir ? -Math.PI / 4 : 0, 0],
+    dressoirSecondRotation: [0, closets.dressoir ? -Math.PI / 2 : 0, 0],
+    dressoirThirdRotation: [0, closets.dressoir ? Math.PI / 2 : 0, 0],
+    delay: closets.dressoir ? 0 : 200,
+  });
+
   const uShapeRotations = useSpring({
     uShapeMainRotation: [0, closets.uShape ? -Math.PI / 4 : 0, 0],
     delay: closets.uShape ? 0 : 200,
@@ -81,5 +95,7 @@ export const useAnimations = (closets) => {
     ...uShapeRotations,
     ...uShapePositions,
     ...lShapeRotations,
+    ...zwevendRotations2,
+    ...dressoirtRotation,
   };
 };
