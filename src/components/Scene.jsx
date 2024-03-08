@@ -6,13 +6,14 @@ import { Effects } from "./Effects";
 import { Lights } from "./Lights";
 import { OrbitControls } from "@react-three/drei";
 import { Closets2 } from "../../Closets2";
+import { Closets3 } from "../../Closets3";
 
 export const Scene = () => {
   return (
     <Container>
       <Canvas camera={{ fov: 45 }}>
         {/* <Closets /> */}
-        <Closets2 />
+        <Closets3 />
         <Lights />
         <Effects />
       </Canvas>
