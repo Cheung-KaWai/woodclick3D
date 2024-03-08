@@ -155,6 +155,26 @@ export function Closets3(props) {
           resetClosets();
         }}
       >
+        <Baked
+          closetsAnimation={closetsAnimation}
+          onPointerDown={() => {
+            resetClosets();
+            setCamPos([-1.7, 0.9, 0.8]);
+            setTarget([-1.7, 0.9, 0]);
+            setCurrentCloset("vrijstaand");
+            setClosets((prev) => ({ ...prev, vrijstaand: true }));
+          }}
+          onPointerEnter={() => {
+            setClosets((prev) => ({ ...prev, vrijstaand: true }));
+            document.body.style.cursor = "pointer";
+          }}
+          onPointerLeave={() => {
+            if (currentCloset !== "vrijstaand") {
+              setClosets((prev) => ({ ...prev, vrijstaand: false }));
+            }
+            document.body.style.cursor = "default";
+          }}
+        />
         <animated.mesh
           name="inbouw002"
           geometry={nodes.inbouw002.geometry}
@@ -267,6 +287,7 @@ export function Closets3(props) {
             }
             document.body.style.cursor = "default";
           }}
+          visible={false}
         >
           <animated.mesh rotation={vrijstaandSecondRotation} name="door_plate010" geometry={nodes.door_plate010.geometry} material={nodes.door_plate004.material} position={[-0.100837, 0.168637, 0.10631]} />
           <animated.mesh rotation={vrijstaandThirdRotation} name="door_plate011" geometry={nodes.door_plate011.geometry} material={nodes.door_plate004.material} position={[0.002153, 0.168637, 0.00332]} />

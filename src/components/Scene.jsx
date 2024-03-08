@@ -18,7 +18,6 @@ export const Scene = () => {
         <Closets3 indexCam={index} setIndex={setIndex} />
         <Lights />
         <Effects />
-        {/* <Baked /> */}
       </Canvas>
       <ContainerArrows>
         <ArrowLeft
