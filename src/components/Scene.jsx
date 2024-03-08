@@ -1,25 +1,49 @@
 import { Canvas } from "@react-three/fiber";
-import React, { useEffect, useRef } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { Closets } from "./Closets";
 import { Effects } from "./Effects";
 import { Lights } from "./Lights";
-import { OrbitControls } from "@react-three/drei";
-import { Closets2 } from "../../Closets2";
+
 import { Closets3 } from "../../Closets3";
 import { NoToneMapping } from "three";
-import { Closet4 } from "./Closet4";
+import { FaLongArrowAltRight, FaLongArrowAltLeft } from "react-icons/fa";
 
 export const Scene = () => {
+  const [index, setIndex] = useState(1);
+
   return (
     <Container>
       <Canvas camera={{ fov: 45 }} gl={{ toneMapping: NoToneMapping }}>
         {/* <Closets /> */}
-        <Closets3 />
+        <Closets3 indexCam={index} setIndex={setIndex} />
         <Lights />
         <Effects />
         {/* <Baked /> */}
       </Canvas>
+      <ContainerArrows>
+        <ArrowLeft
+          onClick={() => {
+            if (index === 0) {
+              setIndex(8);
+            } else {
+              setIndex((prev) => prev - 1);
+            }
+          }}
+        >
+          <FaLongArrowAltLeft size={24} />
+        </ArrowLeft>
+        <ArrowRight
+          onClick={() => {
+            if (index === 8) {
+              setIndex(0);
+            } else {
+              setIndex((prev) => prev + 1);
+            }
+          }}
+        >
+          <FaLongArrowAltRight size={24} />
+        </ArrowRight>
+      </ContainerArrows>
     </Container>
   );
 };
@@ -39,5 +63,36 @@ const Container = styled.div`
     left: 0;
     top: 0;
     pointer-events: none;
+  }
+`;
+
+const ContainerArrows = styled.div`
+  position: relative;
+  left: 50%;
+  display: flex;
+  width: 300px;
+  justify-content: space-between;
+  transform: translateX(-50%);
+`;
+
+const ArrowRight = styled.div`
+  /* border: 1px solid red; */
+  padding: 10px;
+  color: #d2d2d2;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    transform: translateX(5px);
+    cursor: pointer;
+  }
+`;
+
+const ArrowLeft = styled.div`
+  /* border: 1px solid red; */
+  cursor: pointer;
+  padding: 10px;
+  color: #d2d2d2;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    transform: translateX(-5px);
   }
 `;
