@@ -86,6 +86,8 @@ export function Closets2(props) {
         onPointerMissed={() => {
           setCamPos([0, 1.4, 2]);
           setTarget([0, 0, -1]);
+          setCurrentCloset(null);
+          resetClosets();
         }}
       >
         <animated.mesh

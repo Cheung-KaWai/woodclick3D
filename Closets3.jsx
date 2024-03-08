@@ -10,6 +10,7 @@ import { useAnimations } from "./src/hooks/useAnimations";
 import { Texts } from "./src/components/Texts";
 import { path } from "./src/lib/globals";
 import { Base } from "./src/components/Base";
+import { Baked } from "./src/components/Baked";
 
 export function Closets3(props) {
   const { nodes, materials } = useGLTF(path + "/closets2-transformed.glb");
@@ -87,8 +88,30 @@ export function Closets3(props) {
         onPointerMissed={() => {
           setCamPos([0, 1.4, 2]);
           setTarget([0, 0, -1]);
+          setCurrentCloset(null);
+          resetClosets();
         }}
       >
+        <Baked
+          closetsAnimation={closetsAnimation}
+          onPointerDown={() => {
+            resetClosets();
+            setCamPos([-1.7, 0.9, 0.8]);
+            setTarget([-1.7, 0.9, 0]);
+            setCurrentCloset("vrijstaand");
+            setClosets((prev) => ({ ...prev, vrijstaand: true }));
+          }}
+          onPointerEnter={() => {
+            setClosets((prev) => ({ ...prev, vrijstaand: true }));
+            document.body.style.cursor = "pointer";
+          }}
+          onPointerLeave={() => {
+            if (currentCloset !== "vrijstaand") {
+              setClosets((prev) => ({ ...prev, vrijstaand: false }));
+            }
+            document.body.style.cursor = "default";
+          }}
+        />
         <animated.mesh
           name="inbouw002"
           geometry={nodes.inbouw002.geometry}
@@ -205,6 +228,7 @@ export function Closets3(props) {
             }
             document.body.style.cursor = "default";
           }}
+          visible={false}
         >
           <animated.mesh rotation={vrijstaandSecondRotation} name="door_plate010" geometry={nodes.door_plate010.geometry} material={nodes.door_plate004.material} position={[-0.100837, 0.168637, 0.10631]} />
           <animated.mesh rotation={vrijstaandThirdRotation} name="door_plate011" geometry={nodes.door_plate011.geometry} material={nodes.door_plate004.material} position={[0.002153, 0.168637, 0.00332]} />

@@ -7,15 +7,18 @@ import { Lights } from "./Lights";
 import { OrbitControls } from "@react-three/drei";
 import { Closets2 } from "../../Closets2";
 import { Closets3 } from "../../Closets3";
+import { NoToneMapping } from "three";
+import { Closet4 } from "./Closet4";
 
 export const Scene = () => {
   return (
     <Container>
-      <Canvas camera={{ fov: 45 }}>
+      <Canvas camera={{ fov: 45 }} gl={{ toneMapping: NoToneMapping }}>
         {/* <Closets /> */}
         <Closets3 />
         <Lights />
         <Effects />
+        {/* <Baked /> */}
       </Canvas>
     </Container>
   );
