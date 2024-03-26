@@ -7,9 +7,10 @@ import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { animated, config, useSpring } from "@react-spring/three";
 import { useAnimations } from "../hooks/useAnimations";
+import { path } from "../lib/globals";
 
 export function Baked(props) {
-  const { nodes, materials } = useGLTF("/baked-transformed.glb");
+  const { nodes, materials } = useGLTF(path + "/baked-transformed.glb");
 
   const { vrijstaandMainRotation, vrijstaandSecondRotation, vrijstaandThirdRotation, vrijstaandPosition1, vrijstaandPosition2, vrijstaandPosition3 } = useAnimations(props.closetsAnimation);
 
@@ -26,4 +27,4 @@ export function Baked(props) {
   );
 }
 
-useGLTF.preload("/baked-transformed.glb");
+useGLTF.preload(path + "/baked-transformed.glb");

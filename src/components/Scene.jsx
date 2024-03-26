@@ -29,7 +29,7 @@ export const Scene = () => {
             }
           }}
         >
-          <FaLongArrowAltLeft size={24} />
+          <FaLongArrowAltLeft size={32} color="#223b7d" />
         </ArrowLeft>
         <ArrowRight
           onClick={() => {
@@ -40,7 +40,7 @@ export const Scene = () => {
             }
           }}
         >
-          <FaLongArrowAltRight size={24} />
+          <FaLongArrowAltRight size={32} color="#223b7d" />
         </ArrowRight>
       </ContainerArrows>
     </Container>
@@ -71,7 +71,9 @@ const ContainerArrows = styled.div`
   display: flex;
   width: 300px;
   justify-content: space-between;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(-30px);
+  position: absolute;
+  z-index: 10;
 `;
 
 const ArrowRight = styled.div`
