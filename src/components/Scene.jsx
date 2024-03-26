@@ -23,7 +23,7 @@ export const Scene = () => {
         <ArrowLeft
           onClick={() => {
             if (index === 0) {
-              setIndex(8);
+              setIndex(7);
             } else {
               setIndex((prev) => prev - 1);
             }
@@ -33,7 +33,7 @@ export const Scene = () => {
         </ArrowLeft>
         <ArrowRight
           onClick={() => {
-            if (index === 8) {
+            if (index === 7) {
               setIndex(0);
             } else {
               setIndex((prev) => prev + 1);

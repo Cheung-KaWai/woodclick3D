@@ -5,7 +5,7 @@ import styled from "styled-components";
 export const Texts = ({ closetsAnimation }) => {
   return (
     <>
-      <Html center position={[0.6, 1.1, 0]}>
+      <Html center position={[0.4, 1.1, 0]}>
         <Link href="https://woodclick.fluxwebdesign.be/onze-kasten/configurator/?template=schuine-kast">
           <Container $scale={closetsAnimation.schuin} className="label_container">
             <LabelText className="label_text">Schuin</LabelText>
@@ -19,20 +19,20 @@ export const Texts = ({ closetsAnimation }) => {
           </Container>
         </Link>
       </Html>
-      <Html center position={[-0.5, 0.9, 0]} className="label_container">
+      <Html center position={[-0.3, 0.9, 0]} className="label_container">
         <Link href="https://woodclick.fluxwebdesign.be/onze-kasten/configurator/?template=zwevende-kast">
           <Container $scale={closetsAnimation.zwevend}>
             <LabelText className="label_text">Zwevend</LabelText>
           </Container>
         </Link>
       </Html>
-      <Html center position={[0.05, 0.9, 0]} className="label_container">
+      {/* <Html center position={[0.05, 0.9, 0]} className="label_container">
         <Link href="https://woodclick.fluxwebdesign.be/onze-kasten/configurator/?template=zwevende-kast">
           <Container $scale={closetsAnimation.zwevend2}>
             <LabelText className="label_text">Zwevend 2</LabelText>
           </Container>
         </Link>
-      </Html>
+      </Html> */}
       <Html center position={[-1.72, 1.1, 0]} className="label_container">
         <Link href="https://woodclick.fluxwebdesign.be/configurator/?template=vrijstaande-kast">
           <Container $scale={closetsAnimation.vrijstaand}>
@@ -47,14 +47,14 @@ export const Texts = ({ closetsAnimation }) => {
           </Container>
         </Link>
       </Html>
-      <Html center position={[1.1, 1.1, 0]} className="label_container">
+      <Html center position={[1, 1.1, 0]} className="label_container">
         <Link href="https://woodclick.fluxwebdesign.be/onze-kasten/configurator/?template=kast-in-l-vorm">
           <Container $scale={closetsAnimation.lShape}>
             <LabelText className="label_text">L-vorm</LabelText>
           </Container>
         </Link>
       </Html>
-      <Html center position={[-0.95, 0.87, 0]} className="label_container">
+      <Html center position={[-0.825, 0.87, 0]} className="label_container">
         <Link href="https://woodclick.fluxwebdesign.be/onze-kasten/configurator/?template=dressoir">
           <Container $scale={closetsAnimation.dressoir}>
             <LabelText className="label_text">Dressoir</LabelText>

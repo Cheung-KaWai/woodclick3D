@@ -28,28 +28,23 @@ const camPositions = [
     name: "inbouw",
   },
   {
-    position: [-0.9, 0.9, 0.8],
-    target: [-0.9, 0.9, 0],
+    position: [-0.825, 0.9, 0.8],
+    target: [-0.825, 0.9, 0],
     name: "dressoir",
   },
   {
-    position: [-0.5, 0.9, 0.8],
-    target: [-0.5, 0.9, 0],
+    position: [-0.3, 0.9, 0.8],
+    target: [-0.3, 0.9, 0],
     name: "zwevend",
   },
   {
-    position: [0, 0.9, 0.8],
-    target: [0, 0.9, 0],
-    name: "zwevend2",
-  },
-  {
-    position: [0.6, 0.9, 0.8],
-    target: [0.6, 0.9, 0],
+    position: [0.4, 0.9, 0.8],
+    target: [0.4, 0.9, 0],
     name: "schuin",
   },
   {
-    position: [1.1, 0.9, 0.8],
-    target: [1.1, 0.9, 0],
+    position: [1, 0.9, 0.8],
+    target: [1, 0.9, 0],
     name: "lShape",
   },
   {
@@ -200,7 +195,7 @@ export function Closets3(props) {
           name="schuin001"
           geometry={nodes.schuin001.geometry}
           material={nodes.door_plate004.material}
-          position={[0.579829, 0.70254, 0.070995]}
+          position={[0.379829, 0.70254, 0.070995]}
           rotation={schuinMainRotation}
           onPointerDown={() => {
             resetClosets();
@@ -232,7 +227,7 @@ export function Closets3(props) {
           name="lshape"
           geometry={nodes.lshape.geometry}
           material={nodes.door_plate004.material}
-          position={[1.128124, 0.705958, 0.01079]}
+          position={[1.028124, 0.705958, 0.01079]}
           onPointerDown={() => {
             setIndex(7);
             resetClosets();
@@ -287,7 +282,7 @@ export function Closets3(props) {
         </animated.mesh>
         <animated.group
           name="zwevend"
-          position={[-0.491127, 0.804421, 0.035782]}
+          position={[-0.291127, 0.804421, 0.035782]}
           rotation={zwevendMainRotation}
           onPointerDown={() => {
             resetClosets();
@@ -343,7 +338,7 @@ export function Closets3(props) {
           name="dressoir001"
           geometry={nodes.dressoir001.geometry}
           material={nodes.door_plate004.material}
-          position={[-0.929325, 0.76046, 0.020676]}
+          position={[-0.829325, 0.76046, 0.020676]}
           onPointerDown={() => {
             resetClosets();
             setIndex(3);
@@ -365,34 +360,6 @@ export function Closets3(props) {
           <animated.mesh rotation={dressoirThirdRotation} name="door_plate001" geometry={nodes.door_plate001.geometry} material={nodes.door_plate004.material} position={[0.039945, 0.003299, 0.042526]} />
           <animated.mesh rotation={dressoirSecondRotation} name="door_plate002" geometry={nodes.door_plate002.geometry} material={nodes.door_plate004.material} position={[0.042526, 0.003299, 0.039945]} />
           <animated.mesh rotation={dressoirThirdRotation} name="door_plate003" geometry={nodes.door_plate003.geometry} material={nodes.door_plate004.material} position={[0.144101, 0.003299, -0.061631]} />
-        </animated.mesh>
-        <animated.mesh
-          name="zwevend001"
-          geometry={nodes.zwevend001.geometry}
-          material={nodes.zwevend001.material}
-          position={[0.029038, 0.804421, 0.041993]}
-          rotation={zwevendMainRotation2}
-          onPointerDown={() => {
-            resetClosets();
-            setIndex(5);
-            setCurrentCloset("zwevend2");
-            setClosets((prev) => ({ ...prev, zwevend2: true }));
-          }}
-          onPointerEnter={() => {
-            setClosets((prev) => ({ ...prev, zwevend2: true }));
-            document.body.style.cursor = "pointer";
-          }}
-          onPointerLeave={() => {
-            if (currentCloset !== "zwevend2") {
-              setClosets((prev) => ({ ...prev, zwevend2: false }));
-            }
-            document.body.style.cursor = "default";
-          }}
-        >
-          <animated.mesh rotation={zwevendSecondRotation2} name="door_plate004" geometry={nodes.door_plate004.geometry} material={nodes.door_plate004.material} position={[-0.108962, 0.000681, 0.206054]} />
-          <animated.mesh rotation={zwevendThirdRotation2} name="door_plate005" geometry={nodes.door_plate005.geometry} material={nodes.door_plate005.material} position={[-0.003532, 0.000681, 0.100625]} />
-          <animated.mesh rotation={zwevendSecondRotation2} name="door_plate024" geometry={nodes.door_plate024.geometry} material={nodes.door_plate024.material} position={[0.100625, 0.000681, -0.003532]} />
-          <animated.mesh rotation={zwevendThirdRotation2} name="door_plate025" geometry={nodes.door_plate025.geometry} material={nodes.door_plate025.material} position={[0.206054, 0.000681, -0.108962]} />
         </animated.mesh>
       </animated.group>
       <Texts closetsAnimation={closetsAnimation} />
